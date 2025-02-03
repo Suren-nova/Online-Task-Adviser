@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="floating-window" id="taskTracker">
+        <div class="tracker-header">
+            <h2>Task Tracker</h2>
+        </div>
+        <div class="tracker-body">
+            <div class="input-group">
+                <label for="totalTasks">Total Tasks:</label>
+                <div class="input-button-group">
+                    <input type="number" id="totalTasks" min="1">
+                    <button id="setTotalTasks" class="btn secondary">Set</button>
+                    <span id="totalTasksDisplay" class="target-display"></span>
+                </div>
+            </div>
+            <div class="input-group aht-group">
+                <label for="targetAHT">Target AHT (seconds):</label>
+                <div class="input-button-group">
+                    <input type="number" id="targetAHT" min="1">
+                    <button id="setTargetAHT" class="btn secondary">Set</button>
+                    <span id="targetAHTDisplay" class="target-display"></span>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="counter">Tasks: <span id="taskCounter">0/0</span></div>
+                <div class="timer">Time: <span id="timer">00:00</span></div>
+            </div>
+            <div class="handle-time">Last Task Submitted In: <span id="lastTaskTime">0s</span></div>
+            <div class="handle-time">Current Handle Time: <span id="handleTimeDisplay">0s</span></div>
+            <div class="handle-time">Recommended Submit Time: <span id="recommendedTimeDisplay">0s</span></div>
+            <button id="timerControl" class="btn timer-btn">Start Timer</button>
+            <button id="submitTask" class="btn submit-btn">Submit Task (Alt+Space)</button>
+            <div class="button-group">
+                <button id="undoButton" class="btn secondary">Undo</button>
+                <button id="exportData" class="btn secondary">Export Data</button>
+            </div>
+            <button id="resetAll" class="btn reset-btn">Reset Everything</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
