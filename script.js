@@ -213,17 +213,16 @@ class TaskTracker {
             return;
         }
 
-        const targetTotalTime = this.targetAHTValue * this.totalTasksTarget;
+        // Calculate total time spent so far
         const timeSpent = this.handleTimes.reduce((a, b) => a + b, 0);
-        const remainingTasks = this.totalTasksTarget - this.taskCount;
 
-        if (remainingTasks <= 0) {
-            this.elements.recommendedTimeDisplay.textContent = `${this.targetAHTValue}s`;
-            return;
-        }
+        // Calculate the target time for all completed tasks (including the next one)
+        const targetTimeForCompletedTasks = this.targetAHTValue * (this.taskCount + 1);
 
-        const remainingTime = targetTotalTime - timeSpent;
-        const recommendedTime = (remainingTime / remainingTasks).toFixed(1);
+        // Calculate the recommended time for the next task
+        const recommendedTime = (targetTimeForCompletedTasks - timeSpent).toFixed(1);
+
+        // Ensure the recommended time is not negative
         this.elements.recommendedTimeDisplay.textContent = `${Math.max(0, recommendedTime)}s`;
     }
 
